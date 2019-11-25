@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int seconds = (int) (bestScore / 1000) % 60 ;
         int minutes = (int) ((bestScore / (1000*60)) % 60);
 
-        TextView scoreView = (TextView)findViewById(R.id.best_score);
+        TextView scoreView = findViewById(R.id.best_score);
 
         String timeString = String.format("%02d:%02d", minutes, seconds);
         scoreView.setText(timeString);
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton divide = findViewById(R.id.divide);
         ImageButton clear = findViewById(R.id.clear);
         ImageButton skip = findViewById(R.id.skip);
+        ImageButton showHint = findViewById(R.id.showHint);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divide.setOnClickListener(this);
         clear.setOnClickListener(this);
         skip.setOnClickListener(this);
+        showHint.setOnClickListener(this);
 
         chronometer = findViewById(R.id.chronometer);
         chronometer.start();
@@ -124,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 enableButtons();
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 break;
+            case R.id.showHint:
+                //show hint in hint textView
         }
     }
 
@@ -162,8 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             current_operation = s;
             lastClickInt = false;
             setFormula();
-            ((ImageButton)button).setColorFilter(Color.argb(150,200,200,200));
-            button.setEnabled(false);
+            button.setEnabled(true);
         }
     }
 
@@ -207,6 +210,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 9:
                 ((ImageButton) button).setImageResource(R.drawable.nine);
+                break;
+            case 10:
+                ((ImageButton) button).setImageResource(R.drawable.ten);
+                break;
+            case 11:
+                ((ImageButton) button).setImageResource(R.drawable.jack);
+                break;
+            case 12:
+                ((ImageButton) button).setImageResource(R.drawable.queen);
+                break;
+            case 13:
+                ((ImageButton) button).setImageResource(R.drawable.knight);
                 break;
         }
     }

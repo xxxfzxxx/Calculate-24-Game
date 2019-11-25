@@ -43,7 +43,7 @@ public class GameOverActivity extends AppCompatActivity {
         bestTimeView.setText("Best Time: " + timeString);
     }
 
-    protected void play(View view){
+    protected void play(View view) {
         Intent myIntent = new Intent(GameOverActivity.this, MainActivity.class);
         GameOverActivity.this.startActivity(myIntent);
         finish();
