@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_game"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#F5F5F5"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time:"
+                android:textAlignment="center" />
+
+            <Chronometer
+                android:id="@+id/chronometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#D5F8FE"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Best Score:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/best_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="24pt" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="#D7F7FE">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/button1"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/eight" />
+
+            <ImageButton
+                android:id="@+id/button2"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/nine" />
+
+            <ImageButton
+                android:id="@+id/button3"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/five" />
+
+            <ImageButton
+                android:id="@+id/button4"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/one" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/plus"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/plus" />
+
+            <ImageButton
+                android:id="@+id/minus"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/minus" />
+
+            <ImageButton
+                android:id="@+id/multiply"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/multiply" />
+
+            <ImageButton
+                android:id="@+id/divide"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/divide" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_weight="1"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp" />
+
+            <ImageButton
+                android:id="@+id/clear"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/clear" />
+
+            <ImageButton
+                android:id="@+id/skip"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="16dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/skip" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:paddingBottom="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
