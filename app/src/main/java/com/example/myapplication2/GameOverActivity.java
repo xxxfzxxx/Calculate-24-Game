@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class GameOverActivity extends AppCompatActivity {
 
         TextView timeView = findViewById(R.id.timeView);
         TextView bestTimeView = findViewById(R.id.bestTimeView);
+
         long time = getIntent().getLongExtra("TIME",0L);
 
         int seconds = (int) (time / 1000) % 60 ;
@@ -41,11 +43,16 @@ public class GameOverActivity extends AppCompatActivity {
 
         timeString = String.format("%02d:%02d", bestminutes, bestseconds);
         bestTimeView.setText("Best Time: " + timeString);
-    }
 
-    protected void play(View view) {
-        Intent myIntent = new Intent(GameOverActivity.this, MainActivity.class);
-        GameOverActivity.this.startActivity(myIntent);
-        finish();
+        final ImageButton play = findViewById(R.id.play);
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent playIntent = new Intent(GameOverActivity.this, MainActivity.class);
+                GameOverActivity.this.startActivity(playIntent);
+                finish();
+            }
+        });
+
     }
 }

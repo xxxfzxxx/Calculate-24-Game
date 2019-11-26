@@ -3,9 +3,6 @@ package com.example.myapplication2;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by Ian on 1/13/2017.
- */
 
 public class Util {
 

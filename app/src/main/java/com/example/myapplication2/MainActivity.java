@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
+import com.show.api.ShowApiRequest;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -26,9 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     long time;
     Chronometer chronometer;
-
+    Handler handler = new Handler();
+    public TextView hint;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int minutes = (int) ((bestScore / (1000*60)) % 60);
 
         TextView scoreView = findViewById(R.id.best_score);
-
+        hint = findViewById(R.id.hint);
         String timeString = String.format("%02d:%02d", minutes, seconds);
         scoreView.setText(timeString);
 
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton divide = findViewById(R.id.divide);
         ImageButton clear = findViewById(R.id.clear);
         ImageButton skip = findViewById(R.id.skip);
-        ImageButton showHint = findViewById(R.id.showHint);
+        final ImageButton showHint = findViewById(R.id.showHint);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
@@ -70,8 +73,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divide.setOnClickListener(this);
         clear.setOnClickListener(this);
         skip.setOnClickListener(this);
-        showHint.setOnClickListener(this);
 
+        showHint.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new Thread(){
+                    //在新线程中发送网络请求
+                    public void run() {
+                        String numbers = active_numbers.get(0) + "," + active_numbers.get(1) + "," + active_numbers.get(2) + "," + active_numbers.get(3);
+                        String appid = "116982";
+                        String secret = "1c729e5685ba43588d87b4c0874fb6cc";
+                        final String res = new ShowApiRequest("http://route.showapi.com/1023-1", appid, secret)
+                                .addTextPara("numbers", numbers)
+                                .addTextPara("score", "24")
+                                .addTextPara("getAll", "true")
+                                .addTextPara("getOthers", "false")
+                                .post();
+                        handler.post(new Thread(){
+                            public void run() {
+                                hint.setText(res);
+                            }
+                        });
+                    }
+                }.start();
+            }
+        });
         chronometer = findViewById(R.id.chronometer);
         chronometer.start();
     }
@@ -126,8 +151,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 enableButtons();
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 break;
-            case R.id.showHint:
-                //show hint in hint textView
         }
     }
 
@@ -287,5 +310,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button7.clearColorFilter();
         button8.clearColorFilter();
 
+    }
+
+    protected void showHint() {
+        active_numbers.get(0);
+        active_numbers.get(1);
+        active_numbers.get(2);
+        active_numbers.get(3);
     }
 }

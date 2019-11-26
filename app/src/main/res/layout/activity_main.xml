@@ -5,7 +5,7 @@
     android:id="@+id/activity_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#FF16663D"
     android:orientation="vertical"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
@@ -77,12 +77,12 @@
             android:textSize="24pt" />
 
         <TextView
-            android:id="@+id/Hint"
+            android:id="@+id/hint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="30dp" />
+            android:textSize="10dp" />
 
     </LinearLayout>
 
@@ -90,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:background="#D7F7FE">
+        android:background="#FF16663D">
 
         <TableRow
             android:layout_width="match_parent"
