@@ -82,12 +82,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         String numbers = active_numbers.get(0) + "," + active_numbers.get(1) + "," + active_numbers.get(2) + "," + active_numbers.get(3);
                         String appid = "116982";
                         String secret = "1c729e5685ba43588d87b4c0874fb6cc";
-                        final String res = new ShowApiRequest("http://route.showapi.com/1023-1", appid, secret)
+                        String output = new ShowApiRequest("http://route.showapi.com/1023-1", appid, secret)
                                 .addTextPara("numbers", numbers)
                                 .addTextPara("score", "24")
                                 .addTextPara("getAll", "true")
                                 .addTextPara("getOthers", "false")
                                 .post();
+                        final String res = output;
                         handler.post(new Thread(){
                             public void run() {
                                 hint.setText(res);
