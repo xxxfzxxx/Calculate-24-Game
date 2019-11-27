@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .addTextPara("getAll", "true")
                                 .addTextPara("getOthers", "false")
                                 .post();
-                        final String res = output;
+                        final String res = output.split(",")[4];
                         handler.post(new Thread(){
                             public void run() {
                                 hint.setText(res);
