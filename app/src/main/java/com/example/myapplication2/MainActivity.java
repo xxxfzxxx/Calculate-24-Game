@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lastClickInt = false;
                 enableButtons();
                 chronometer.setBase(SystemClock.elapsedRealtime());
+                hint.setText("");
                 break;
         }
     }
