@@ -208,47 +208,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     protected void setButton(View button, int i) {
-        switch (i) {
-            case 1:
-                ((ImageButton) button).setImageResource(R.drawable.one);
-                break;
-            case 2:
-                ((ImageButton) button).setImageResource(R.drawable.two);
-                break;
-            case 3:
-                ((ImageButton) button).setImageResource(R.drawable.three);
-                break;
-            case 4:
-                ((ImageButton) button).setImageResource(R.drawable.four);
-                break;
-            case 5:
-                ((ImageButton) button).setImageResource(R.drawable.five);
-                break;
-            case 6:
-                ((ImageButton) button).setImageResource(R.drawable.six);
-                break;
-            case 7:
-                ((ImageButton) button).setImageResource(R.drawable.seven);
-                break;
-            case 8:
-                ((ImageButton) button).setImageResource(R.drawable.eight);
-                break;
-            case 9:
-                ((ImageButton) button).setImageResource(R.drawable.nine);
-                break;
-            case 10:
-                ((ImageButton) button).setImageResource(R.drawable.ten);
-                break;
-            case 11:
-                ((ImageButton) button).setImageResource(R.drawable.jack);
-                break;
-            case 12:
-                ((ImageButton) button).setImageResource(R.drawable.queen);
-                break;
-            case 13:
-                ((ImageButton) button).setImageResource(R.drawable.knight);
-                break;
+        if (i == 1) {
+            ((ImageButton) button).setImageResource(R.drawable.one);
+        } else if (i == 2) {
+            ((ImageButton) button).setImageResource(R.drawable.two);
+        } else if (i == 3) {
+            ((ImageButton) button).setImageResource(R.drawable.three);
+        } else if (i == 4) {
+            ((ImageButton) button).setImageResource(R.drawable.four);
+        } else if (i == 5) {
+            ((ImageButton) button).setImageResource(R.drawable.five);
+        } else if (i == 6) {
+            ((ImageButton) button).setImageResource(R.drawable.six);
+        } else if (i == 7) {
+            ((ImageButton) button).setImageResource(R.drawable.seven);
+        } else if (i == 8) {
+            ((ImageButton) button).setImageResource(R.drawable.eight);
+        } else if (i == 9) {
+            ((ImageButton) button).setImageResource(R.drawable.nine);
+        } else if (i == 10) {
+            ((ImageButton) button).setImageResource(R.drawable.ten);
+        } else if (i == 11) {
+            ((ImageButton) button).setImageResource(R.drawable.jack);
+        } else if (i == 12) {
+            ((ImageButton) button).setImageResource(R.drawable.queen);
+        } else if (i == 13) {
+            ((ImageButton) button).setImageResource(R.drawable.knight);
         }
+//        switch (i) {
+//            case 1:
+//                ((ImageButton) button).setImageResource(R.drawable.one);
+//                break;
+//            case 2:
+//                ((ImageButton) button).setImageResource(R.drawable.two);
+//                break;
+//            case 3:
+//                ((ImageButton) button).setImageResource(R.drawable.three);
+//                break;
+//            case 4:
+//                ((ImageButton) button).setImageResource(R.drawable.four);
+//                break;
+//            case 5:
+//                ((ImageButton) button).setImageResource(R.drawable.five);
+//                break;
+//            case 6:
+//                ((ImageButton) button).setImageResource(R.drawable.six);
+//                break;
+//            case 7:
+//                ((ImageButton) button).setImageResource(R.drawable.seven);
+//                break;
+//            case 8:
+//                ((ImageButton) button).setImageResource(R.drawable.eight);
+//                break;
+//            case 9:
+//                ((ImageButton) button).setImageResource(R.drawable.nine);
+//                break;
+//            case 10:
+//                ((ImageButton) button).setImageResource(R.drawable.ten);
+//                break;
+//            case 11:
+//                ((ImageButton) button).setImageResource(R.drawable.jack);
+//                break;
+//            case 12:
+//                ((ImageButton) button).setImageResource(R.drawable.queen);
+//                break;
+//            case 13:
+//                ((ImageButton) button).setImageResource(R.drawable.knight);
+//                break;
+//        }
     }
 
     protected void setFormula() {

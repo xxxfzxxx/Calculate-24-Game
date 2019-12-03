@@ -5,15 +5,17 @@ import java.util.Collections;
 
 
 public class Util {
-
+/*
+Shuffle and pick four random cards
+ */
     private static ArrayList<Integer> getUniqueDigits(){
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i=1; i<14; i++) {
+        for (int i = 1; i < 14; i++) {
             list.add(i);
         }
         Collections.shuffle(list);
         ArrayList<Integer> digits = new ArrayList<>();
-        for (int i=0; i<4; i++) {
+        for (int i = 0; i < 4; i++) {
             digits.add(list.get(i));
         }
         return digits;
@@ -27,7 +29,7 @@ public class Util {
         list.add("/");
         Collections.shuffle(list);
         ArrayList<String> operators = new ArrayList<>();
-        for (int i=0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             operators.add(list.get(i));
         }
         return operators;
@@ -40,7 +42,7 @@ public class Util {
             digits = getUniqueDigits();
             ArrayList<String> operators = getUniqueOperators();
             total = digits.get(0);
-            for (int i=0; i < 3; i++){
+            for (int i = 0; i < 3; i++){
                 if (operators.get(i) == "+"){
                     total = total + digits.get(i+1);
                 }
