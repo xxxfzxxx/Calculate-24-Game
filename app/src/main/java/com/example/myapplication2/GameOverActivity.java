@@ -23,11 +23,11 @@ public class GameOverActivity extends AppCompatActivity {
         long time = getIntent().getLongExtra("TIME",0L);
 
         int seconds = (int) (time / 1000) % 60 ;
-        int minutes = (int) ((time / (1000*60)) % 60);
+        int minutes = (int) ((time / (1000 * 60)) % 60);
 
-        String timeString = String.format("%02d:%02d", minutes, seconds);
+        String timeFormat = String.format("%02d:%02d", minutes, seconds);
 
-        timeView.setText("Time: " + timeString);
+        timeView.setText("Time : " + timeFormat);
 
         SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
         long highestScore = prefs.getLong("highestScore", 0);
@@ -41,8 +41,8 @@ public class GameOverActivity extends AppCompatActivity {
         int bestSeconds = (int) (highestScore / 1000) % 60 ;
         int bestMinutes = (int) ((highestScore / (1000*60)) % 60);
 
-        timeString = String.format("%02d:%02d", bestMinutes, bestSeconds);
-        bestTimeView.setText("Best Time: " + timeString);
+        timeFormat = String.format("%02d:%02d", bestMinutes, bestSeconds);
+        bestTimeView.setText("Best Time : " + timeFormat);
 
         final ImageButton play = findViewById(R.id.play);
         play.setOnClickListener(new View.OnClickListener() {
