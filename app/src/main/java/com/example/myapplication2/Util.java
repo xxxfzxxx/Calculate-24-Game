@@ -8,10 +8,10 @@ public class Util {
 /*
 Shuffle and pick four random cards
  */
-    private static ArrayList<Integer> getUniqueDigits(){
+    private static ArrayList<Integer> getDigits(){
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i < 14; i++) {
-            list.add(i);
+            list.add(1 + (int) (Math.random() * 13));
         }
         Collections.shuffle(list);
         ArrayList<Integer> digits = new ArrayList<>();
@@ -37,9 +37,9 @@ Shuffle and pick four random cards
 
     static ArrayList<Integer> getValidDigits(){
         float total = 0;
-        ArrayList<Integer> digits = getUniqueDigits();
+        ArrayList<Integer> digits = getDigits();
         while (total != 24) {
-            digits = getUniqueDigits();
+            digits = getDigits();
             ArrayList<String> operators = getUniqueOperators();
             total = digits.get(0);
             for (int i = 0; i < 3; i++){

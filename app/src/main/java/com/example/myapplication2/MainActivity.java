@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().hide();
         SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
         long bestScore = prefs.getLong("bestScore", 0);
         int seconds = (int) (bestScore / 1000) % 60 ;
@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.clear:
                 clear();
+                hint.setText("");
                 break;
             case R.id.skip:
                 resetFilters();

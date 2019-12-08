@@ -5,12 +5,12 @@
     android:id="@+id/activity_game"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF16663D"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -93,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:background="#FF16663D">
+        android:background="@null">
 
         <TableRow
             android:layout_width="match_parent"
@@ -150,8 +150,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:paddingLeft="16dp"
-                android:paddingRight="8dp"
                 android:paddingTop="16dp"
+                android:paddingRight="8dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/plus" />
 
@@ -160,8 +160,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp"
                 android:paddingTop="16dp"
+                android:paddingRight="8dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/minus" />
 
@@ -170,8 +170,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:paddingLeft="8dp"
-                android:paddingRight="8dp"
                 android:paddingTop="16dp"
+                android:paddingRight="8dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/multiply" />
 
@@ -180,8 +180,8 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:paddingLeft="8dp"
-                android:paddingRight="16dp"
                 android:paddingTop="16dp"
+                android:paddingRight="16dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/divide" />
         </TableRow>
@@ -222,10 +222,10 @@
                 android:layout_gravity="center|center_horizontal"
                 android:layout_weight="1"
                 android:background="@null"
-                android:paddingBottom="16dp"
                 android:paddingLeft="8dp"
-                android:paddingRight="16dp"
                 android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/skip" />
 

@@ -17,6 +17,7 @@ public class GameOverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
 
+        getSupportActionBar().hide();
         TextView timeView = findViewById(R.id.timeView);
         TextView bestTimeView = findViewById(R.id.bestTimeView);
 
@@ -39,7 +40,7 @@ public class GameOverActivity extends AppCompatActivity {
         highestScore = prefs.getLong("highestScore", 0);
 
         int bestSeconds = (int) (highestScore / 1000) % 60 ;
-        int bestMinutes = (int) ((highestScore / (1000*60)) % 60);
+        int bestMinutes = (int) ((highestScore / (1000 * 60)) % 60);
 
         timeFormat = String.format("%02d:%02d", bestMinutes, bestSeconds);
         bestTimeView.setText("Best Time : " + timeFormat);
