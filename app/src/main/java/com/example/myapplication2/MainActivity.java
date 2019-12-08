@@ -20,10 +20,10 @@ import com.show.api.ShowApiRequest;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private int current_int;
+    private int currentInt;
     private String current_operation;
     private boolean lastClickInt;
-    private ArrayList<Integer> active_numbers;
+    private ArrayList<Integer> activeNumbers;
     private int numbersUsed;
 
     private long time;
@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String timeString = String.format("%02d:%02d", minutes, seconds);
         scoreView.setText(timeString);
 
-        current_int = 9999;
+        currentInt = 9999;
         current_operation = "";
         numbersUsed = 0;
         lastClickInt = false;
-        setActive_numbers();
+        setActiveNumbers();
 
         ImageButton button1 = findViewById(R.id.button1);
         ImageButton button2 = findViewById(R.id.button2);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new Thread(){
                     //在新线程中发送网络请求
                     public void run() {
-                        String numbers = active_numbers.get(0) + "," + active_numbers.get(1) + "," + active_numbers.get(2) + "," + active_numbers.get(3);
+                        String numbers = activeNumbers.get(0) + "," + activeNumbers.get(1) + "," + activeNumbers.get(2) + "," + activeNumbers.get(3);
                         String appid = "116982";
                         String secret = "1c729e5685ba43588d87b4c0874fb6cc";
                         String output = new ShowApiRequest("http://route.showapi.com/1023-1", appid, secret)
@@ -108,19 +108,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.button1:
                 ImageButton button1 = findViewById(R.id.button1);
-                clickIntegerButton(active_numbers.get(0), button1);
+                clickIntegerButton(activeNumbers.get(0), button1);
                 break;
             case R.id.button2:
                 ImageButton button2 = findViewById(R.id.button2);
-                clickIntegerButton(active_numbers.get(1), button2);
+                clickIntegerButton(activeNumbers.get(1), button2);
                 break;
             case R.id.button3:
                 ImageButton button3 = findViewById(R.id.button3);
-                clickIntegerButton(active_numbers.get(2), button3);
+                clickIntegerButton(activeNumbers.get(2), button3);
                 break;
             case R.id.button4:
                 ImageButton button4 = findViewById(R.id.button4);
-                clickIntegerButton(active_numbers.get(3), button4);
+                clickIntegerButton(activeNumbers.get(3), button4);
                 break;
             case R.id.plus:
                 ImageButton button5 = findViewById(R.id.plus);
@@ -144,9 +144,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.skip:
                 resetFilters();
-                setActive_numbers();
+                setActiveNumbers();
                 current_operation = "";
-                current_int = 9999;
+                currentInt = 9999;
                 numbersUsed = 0;
                 inputView.setText("");
                 lastClickInt = false;
@@ -157,19 +157,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected void clickIntegerButton(int i, View button){
+    public void clickIntegerButton(int i, View button){
         if (!lastClickInt){
-            if (current_int == 9999){
-                current_int = i;
+            if (currentInt == 9999){
+                currentInt = i;
             }
             if (current_operation.equals("+")) {
-                current_int = current_int + i;
+                currentInt = currentInt + i;
             } else if (current_operation.equals("-")) {
-                current_int = current_int - i;
+                currentInt = currentInt - i;
             } else if (current_operation.equals("x")) {
-                current_int = current_int * i;
+                currentInt = currentInt * i;
             } else if (current_operation.equals("/")) {
-                current_int = current_int / i;
+                currentInt = currentInt / i;
             }
 
             current_operation = "";
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected void clickOperator(String s, View button){
+    public void clickOperator(String s, View button){
         if (lastClickInt) {
             current_operation = s;
             lastClickInt = false;
@@ -192,19 +192,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected void setActive_numbers() {
+    public void setActiveNumbers() {
         ImageButton buttonOne = findViewById(R.id.button1);
         ImageButton buttonTwo = findViewById(R.id.button2);
         ImageButton buttonThree = findViewById(R.id.button3);
         ImageButton buttonFour = findViewById(R.id.button4);
-        active_numbers = Util.getValidDigits();
-        setButton(buttonOne, active_numbers.get(0));
-        setButton(buttonTwo, active_numbers.get(1));
-        setButton(buttonThree, active_numbers.get(2));
-        setButton(buttonFour, active_numbers.get(3));
+        activeNumbers = Util.getValidDigits();
+        setButton(buttonOne, activeNumbers.get(0));
+        setButton(buttonTwo, activeNumbers.get(1));
+        setButton(buttonThree, activeNumbers.get(2));
+        setButton(buttonFour, activeNumbers.get(3));
     }
 
-    protected void setButton(View button, int i) {
+    public void setButton(View button, int i) {
         if (i == 1) {
             ((ImageButton) button).setImageResource(R.drawable.one);
         } else if (i == 2) {
@@ -234,15 +234,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected void setFormula() {
-        String typeAnswer = current_int + " " + current_operation;
+    public void setFormula() {
+        String typed = currentInt + " " + current_operation;
         TextView inputView = findViewById(R.id.input);
-        inputView.setText(typeAnswer);
+        inputView.setText(typed);
     }
 
-    protected void clear(){
+    public void clear(){
         TextView inputView = findViewById(R.id.input);
-        current_int = 9999;
+        currentInt = 9999;
         numbersUsed = 0;
         current_operation = "";
         lastClickInt = false;
@@ -251,9 +251,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         enableButtons();
     }
 
-    protected void gameOver(){
+    public void gameOver(){
         if (numbersUsed == 4) {
-            if (current_int == 24) {
+            if (currentInt == 24) {
                 time = SystemClock.elapsedRealtime() - chronometer.getBase();
                 Intent intent = new Intent(this, GameOverActivity.class);
                 intent.putExtra("TIME", time);
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    protected void enableButtons(){
+    public void enableButtons(){
         findViewById(R.id.button1).setEnabled(true);
         findViewById(R.id.button2).setEnabled(true);
         findViewById(R.id.button3).setEnabled(true);
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.divide).setEnabled(true);
     }
 
-    protected void resetFilters(){
+    public void resetFilters(){
         ImageButton buttonOne = findViewById(R.id.button1);
         ImageButton buttonTwo = findViewById(R.id.button2);
         ImageButton buttonThree = findViewById(R.id.button3);
@@ -295,13 +295,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSeven.clearColorFilter();
         buttonEight.clearColorFilter();
 
-    }
-
-    protected void showHint() {
-
-        active_numbers.get(0);
-        active_numbers.get(1);
-        active_numbers.get(2);
-        active_numbers.get(3);
     }
 }

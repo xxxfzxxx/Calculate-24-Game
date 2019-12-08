@@ -19,7 +19,7 @@ public class GameOverActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         TextView timeView = findViewById(R.id.timeView);
-        TextView bestTimeView = findViewById(R.id.bestTimeView);
+        TextView bestTime = findViewById(R.id.bestTimeView);
 
         long time = getIntent().getLongExtra("TIME",0L);
 
@@ -30,6 +30,7 @@ public class GameOverActivity extends AppCompatActivity {
 
         timeView.setText("Time : " + timeFormat);
 
+        //save best time permanently
         SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
         long highestScore = prefs.getLong("highestScore", 0);
         if (highestScore == 0 || highestScore > time){
@@ -43,7 +44,7 @@ public class GameOverActivity extends AppCompatActivity {
         int bestMinutes = (int) ((highestScore / (1000 * 60)) % 60);
 
         timeFormat = String.format("%02d:%02d", bestMinutes, bestSeconds);
-        bestTimeView.setText("Best Time : " + timeFormat);
+        bestTime.setText("Best Time : " + timeFormat);
 
         final ImageButton play = findViewById(R.id.play);
         play.setOnClickListener(new View.OnClickListener() {
